@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:watch": "react-scripts test",
-    "test": "CI=true npm run test:watch -- --coverage",
+    "test": "npm run test:watch -- --coverage",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.{tsx, js, yml, yaml, json, css, scss, md}\"",
     "format:check": "prettier --check \"**/*.{tsx, js, yml, yaml, json, css, scss, md}\""
