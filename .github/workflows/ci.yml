@@ -1,0 +1,20 @@
+name: CI
+on: push
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Use nodeJs
+        uses: actions/setup-node@v3
+        with: 
+          node-version: "12.x"
+      - name: Install dependencies
+        run: npm ci
+      - name: Check code formatting
+        run: npm run format:check
+      - name: Run tests
+        run: npm test
+        env: 
+          CI: true
