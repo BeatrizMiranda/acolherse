@@ -45,7 +45,12 @@ jobs:
         with: 
           name: build
           path: build
-      - uses: actions/download-artifact@v3
+      # - uses: actions/download-artifact@v3
+      - name: Create Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy code
         if: github.event_name == 'push'
