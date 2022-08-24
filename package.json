@@ -24,7 +24,8 @@
     "test": "npm run test:watch -- --coverage",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.{tsx, js, yml, yaml, json, css, scss, md}\"",
-    "format:check": "prettier --check \"**/*.{tsx, js, yml, yaml, json, css, scss, md}\""
+    "format:check": "prettier --check \"**/*.{tsx, js, yml, yaml, json, css, scss, md}\"",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +47,10 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@types/styled-components": "^5.1.26",
+    "husky": "^8.0.1",
     "prettier": "2.7.1",
     "semantic-release": "^19.0.5"
   }
