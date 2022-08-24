@@ -1,0 +1,15 @@
+name: Issue 
+
+on: 
+  issues:
+    types: [opened]
+
+jobs: 
+  slack-message:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Slack message
+        run: echo "run when we have a slack channel :D"
+  #       run: |
+  #         curl -X POST -H 'Content-type: application/json'--data '{ "text": "New issue - <${{ github.event.issue.html_url }}|${{github.event.issue.title}}>" }'${{ secrets.SLACK_WEBHOOK }}
+  
