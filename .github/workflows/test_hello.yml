@@ -1,0 +1,17 @@
+name: Test own github action
+
+on: 
+  push:
+    branches: [automatically_issue]
+    
+jobs: 
+  test-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: ./github/actions/Hello
+        id: hello
+        with: 
+          who-to-greet: 'world'
+      - run: |
+          echo "time - ${{ steps.hello.outputs.time }}"
