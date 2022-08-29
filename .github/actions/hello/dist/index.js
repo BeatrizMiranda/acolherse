@@ -1861,7 +1861,7 @@ const { getInput, setOutput, setFailed } = __webpack_require__(470)
 const github = __webpack_require__(469)
 
 try {
-  // throw(new Error('error testing'))
+  throw(new Error('error testing'))
   const name = getInput('who-to-greet')
   console.log(`Hello ${name}!`)
   
