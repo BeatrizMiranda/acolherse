@@ -40,7 +40,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(780);
+/******/ 		return __webpack_require__(239);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -1850,6 +1850,29 @@ const endpoint = withDefaults(null, DEFAULTS);
 
 exports.endpoint = endpoint;
 //# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
+/***/ 239:
+/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
+
+const { getInput, setOutput, setFailed } = __webpack_require__(470)
+const github = __webpack_require__(469)
+
+try {
+  // throw(new Error('error testing'))
+  const name = getInput('who-to-greet')
+  console.log(`Hello ${name}!`)
+  
+  const time = new Date()
+  setOutput('time', time.toTimeString())
+  
+  console.log(JSON.stringify(github, null, '\t'))
+} catch (error) {
+  setFailed(error.message)
+}
+
 
 
 /***/ }),
@@ -7516,29 +7539,6 @@ module.exports = require("fs");
 /***/ (function(module) {
 
 module.exports = require("zlib");
-
-/***/ }),
-
-/***/ 780:
-/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
-
-const core = __webpack_require__(470)
-const github = __webpack_require__(469)
-
-try {
-  // throw(new Error('error testing'))
-  const name = core.getInput('who-to-greet')
-  console.log(`Hello ${name}!`)
-  
-  const time = new Date()
-  core.setOutput(`time ${time.toTimeString()}`)
-  
-  console.log(JSON.stringify(github, null, '\t'))
-} catch (error) {
-  core.setFailed(error.message)
-}
-
-
 
 /***/ }),
 
