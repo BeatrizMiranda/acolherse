@@ -1,8 +1,6 @@
 name: Test own github action
 
-on: 
-  push:
-    branches: [automatically_issue]
+on: push
     
 jobs: 
   test-actions:
@@ -16,3 +14,4 @@ jobs:
       - name: Log Greeting Time
         run: |
           echo "${{ steps.greet.outputs.time }}"
+          echo $ENV_VARIABLE

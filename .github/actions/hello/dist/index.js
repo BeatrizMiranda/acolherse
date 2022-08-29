@@ -1857,18 +1857,29 @@ exports.endpoint = endpoint;
 /***/ 239:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const { getInput, setOutput, setFailed } = __webpack_require__(470)
+const core = __webpack_require__(470)
 const github = __webpack_require__(469)
+const { getInput, setOutput, setFailed } = core
 
 try {
-  throw(new Error('error testing'))
+  core.debug('Debug message, only show when debbuging option is enabled')
+  core.warning('Show message in yellow')
+  core.error('Show message in red')
+  
   const name = getInput('who-to-greet')
+  // core.setSecret(name) will mask variable 
   console.log(`Hello ${name}!`)
   
   const time = new Date()
   setOutput('time', time.toTimeString())
   
+  // create expandable content  
+  core.startGroup('Logging github object')
   console.log(JSON.stringify(github, null, '\t'))
+  core.endGroup()
+  
+  // Export environment variables
+  core.exportVariable('ENV_VARIABLE', 'hello')
 } catch (error) {
   setFailed(error.message)
 }
