@@ -4,10 +4,10 @@ description: Testing
 inputs: 
   who-to-greet: 
     description: 'Someones name'
-    requires: true
+    required: true
     default: World
 
-output:
+outputs:
   time:
     description: 'The greeting time'
     
