@@ -1,0 +1,18 @@
+name: Test own github action
+
+on: 
+  push:
+    branches: [automatically_issue]
+    
+jobs: 
+  test-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/hello
+        id: greet
+        with: 
+          who-to-greet: 'world'
+      - name: Log Greeting Time
+        run: |
+          echo "${{ steps.greet.outputs.time }}"
